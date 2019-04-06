@@ -1,5 +1,22 @@
-# ASP_ANGULAR
-Hiển Thị Danh Sách Thông Tin Tài Sản
-16520199 - Nguyễn Tiến Đạt
-16521169 - vi chi thien
-16520147 - nguyen duy cuong
+# Quản lý tài sản
+Đồ án quản lý tài sản cá nhân:
+- ASP.NET
+- Angular
+
+## Nội dung chính
+- [Các màn hình](cac-man-hinh)
+- [Cách cài đặt](cach-cai-dat)
+- [Nhóm thực hiện](nhom-thuc-hien)
+- [Báo cáo lỗi](bao-cao-loi)
+- [Bản quyền](ban-quyen)
+## Các màn hình
+## Cách cài đặt
+## Nhóm thực hiện
+| [<img src="https://github.com/NTD98.png" width="150">](https://github.com/NTD98) | [![Vi Chí Thiện](https://github.com/tvc12.png?size=150)](https://github.com/tvc12) | [![Nguyễn Duy Cương](https://github.com/cuongw.png?size=150)](https://github.com/cuong) |
+| :---: | :---: | :---: |
+| [Nguyễn Tiến Đạt](https://github.com/NTD98) | [Vi Chí Thiện](https://github.com/tvc12) | [Nguyễn Duy Cương](https://github.com/cuongw) | 
+| [16520199](https://github.com/NTD98) | [16521169](https://github.com/tvc12) | [16520147](https://github.com/cuongw) |
+## Báo cáo lỗi
+Có vấn đề về bug hoặc muốn tìm hiểu về đồ án. Mở ngay issues [tại đây.](https://github.com/NTD98/ASP_ANGULAR/issues/new) 
+## Bản quyền
+[Apache License 2.0](https://github.com/NTD98/ASP_ANGULAR/blob/master/LICENSE)

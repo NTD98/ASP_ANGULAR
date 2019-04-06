@@ -4,11 +4,11 @@
 - Angular
 
 ## Nội dung chính
-- [Các màn hình](cac-man-hinh)
-- [Cách cài đặt](cach-cai-dat)
-- [Nhóm thực hiện](nhom-thuc-hien)
-- [Báo cáo lỗi](bao-cao-loi)
-- [Bản quyền](ban-quyen)
+- [Các màn hình](các-màn-hình)
+- [Cách cài đặt](cách-cài-dặt)
+- [Nhóm thực hiện](nhóm-thực-hiện)
+- [Báo cáo lỗi](báo-cáo-lỗi)
+- [Bản quyền](bản-quyền)
 ## Các màn hình
 ## Cách cài đặt
 ## Nhóm thực hiện

@@ -35,5 +35,6 @@
         public const string Pages_Administration_TestModel_Delete = "Pages.Administration.TestModel.Delete";
 
         public const string Pages_Administration_Asset = "Pages.Administration.Asset";
+        public const string Pages_Administration_Asset_Create = "Pages.Administration.Asset.Create";
     }
 }

@@ -13,5 +13,6 @@ namespace GWebsite.AbpZeroTemplate.Application.Share.Assets
         //void DeleteAsset(int id);        
         PagedResultDto<AssetDto> GetAssets(AssetFilter input);
         Task<ListResultDto<AssetForViewDto>> GetAssetForView();
+        Task<AssetDto> CreateAsset(AssetInput assetInput);
     }
 }

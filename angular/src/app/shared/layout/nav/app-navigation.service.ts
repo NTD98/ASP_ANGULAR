@@ -19,6 +19,7 @@ export class AppNavigationService {
             new AppMenuItem('Administration', '', 'flaticon-interface-8', '', [
                 new AppMenuItem('MenuClient', 'Pages.Administration.MenuClient', 'flaticon-menu-1', '/app/gwebsite/menu-client'),
                 new AppMenuItem('TestModule','Pages.Administration.TestModel','flaticon-menu-1','/app/gwebsite/test-module'),
+                new AppMenuItem('AssetInformation','Pages.Administration.Asset','flaticon-menu-1','/app/gwebsite/asset'),
             ]),
             new AppMenuItem('Systems', '', 'flaticon-layers', '', [
                 new AppMenuItem('OrganizationUnits', 'Pages.Administration.OrganizationUnits', 'flaticon-map', '/app/admin/organization-units'),

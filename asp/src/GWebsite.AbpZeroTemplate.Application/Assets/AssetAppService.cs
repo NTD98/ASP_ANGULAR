@@ -1,6 +1,8 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.Domain.Repositories;
+using Abp.Authorization;
 using Abp.Linq.Extensions;
+using GWebsite.AbpZeroTemplate.Core.Authorization;
 using GWebsite.AbpZeroTemplate.Application;
 using GWebsite.AbpZeroTemplate.Application.Share.Assets;
 using GWebsite.AbpZeroTemplate.Application.Share.Assets.Dto;
@@ -20,7 +22,13 @@ namespace GWebsite.AbpZeroTemplate.Web.Core.Assets
         {
             this.assetRepository = assetRepository;
         }
-
+        [AbpAuthorize(GWebsitePermissions.Pages_Administration_Asset_Create)]
+        public async Task<AssetDto> CreateAsset(AssetInput assetInput)
+        {
+            var entity = ObjectMapper.Map<Asset>(assetInput);
+            entity = await assetRepository.InsertAsync(entity);
+            return ObjectMapper.Map<AssetDto>(entity);
+        }
         public async Task<ListResultDto<AssetForViewDto>> GetAssetForView()
         {
             var items = await assetRepository.GetAllListAsync();
@@ -35,38 +43,38 @@ namespace GWebsite.AbpZeroTemplate.Web.Core.Assets
             // filter by Area
             if (input.Area != null)
             {
-                query = query.Where(x => x.Area == input.Area);
+                query = query.Where(x => x.Area.Contains(input.Area));
             }
 
             // filter by Area Code
             if (input.Areacode != null)
             {
-                query = query.Where(x => x.Areacode == input.Areacode);
+                query = query.Where(x => x.Areacode.ToLower().Contains(input.Areacode.ToLower()));
             }
             //filter by Assetname
             if (input.Assetname != null)
             {
-                query = query.Where(x => x.Assetname == input.Assetname);
+                query = query.Where(x => x.Assetname.ToLower().Contains(input.Assetname.ToLower()));
             }
             //filter by UnitCode
             if (input.Unitcode != null)
             {
-                query = query.Where(x => x.Unitcode == input.Unitcode);
+                query = query.Where(x => x.Unitcode.ToLower().Contains(input.Assetname.ToLower()));
             }
             //filter by Transaction
             if (input.Transaction != null)
             {
-                query = query.Where(x => x.Transaction == input.Transaction);
+                query = query.Where(x => x.Transaction.ToLower().Contains(input.Transaction.ToLower()));
             }
             //filter by AssetCode
             if (input.Assetcode != null)
             {
-                query = query.Where(x => x.Assetcode == input.Assetcode);
+                query = query.Where(x => x.Assetcode.ToLower().Contains(input.Assetcode.ToLower()));
             }
             //filter by SeriNumber
             if (input.Serinumber != null)
             {
-                query = query.Where(x => x.Serinumber == input.Serinumber);
+                query = query.Where(x => x.Serinumber.ToLower().Contains(input.Serinumber.ToLower()));
             }
             var totalCount = query.Count();
 

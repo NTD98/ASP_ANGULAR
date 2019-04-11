@@ -8,7 +8,7 @@ import { ModalModule, PopoverModule, TabsModule, TooltipModule } from 'ngx-boots
 import { AutoCompleteModule, EditorModule, FileUploadModule as PrimeNgFileUploadModule, InputMaskModule, PaginatorModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
 import { GWebsiteRoutingModule } from './gwebsite-routing.module';
-
+import {AssetComponent} from './asset/asset.component'
 import { MenuClientComponent, CreateOrEditMenuClientModalComponent } from './index';
 import {TestModuleComponent, CreateOrEditTestModuleModalComponent} from './index';
 import { from } from 'rxjs';
@@ -35,6 +35,7 @@ import { from } from 'rxjs';
     declarations: [
         MenuClientComponent, CreateOrEditMenuClientModalComponent,
         TestModuleComponent, CreateOrEditTestModuleModalComponent,
+        AssetComponent,
     ]
 })
 export class GWebsiteModule { }

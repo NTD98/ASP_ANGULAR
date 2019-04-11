@@ -17,6 +17,9 @@
     <Compile Remove="Migrations\20180911025043_AddEntity.cs" />
     <Compile Remove="Migrations\20190323114143_AddDemoModel.cs" />
     <Compile Remove="Migrations\20190330091031_TestModels.cs" />
+    <Compile Remove="Migrations\20190403084821_TestModel.cs" />
+    <Compile Remove="Migrations\20190405112218_Asset.cs" />
+    <Compile Remove="Migrations\20190406113709_Assets.cs" />
   </ItemGroup>
 
   <ItemGroup>

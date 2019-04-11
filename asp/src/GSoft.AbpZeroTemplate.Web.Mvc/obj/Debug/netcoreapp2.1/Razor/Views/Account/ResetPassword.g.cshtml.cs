@@ -61,7 +61,7 @@ using Abp.Json;
                 WriteLiteral("\n    ");
                 EndContext();
                 BeginContext(110, 138, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3909b04be8f94aaa9c472fdef774f803", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b7760e46ead14aa0bd262265c94d3a72", async() => {
                     BeginContext(118, 44, true);
                     WriteLiteral("\n        window.passwordComplexitySetting = ");
                     EndContext();
@@ -91,7 +91,7 @@ using Abp.Json;
                 WriteLiteral("\n    ");
                 EndContext();
                 BeginContext(253, 100, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a147ae8cae8e480f87adab7d50ceb299", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b5cf78ff242b444fad574f0b528b873a", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper>();
@@ -133,7 +133,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
             WriteLiteral("\n        </h3>\n    </div>\n    ");
             EndContext();
             BeginContext(516, 1028, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2944ceb7c4a4482e805a000fbd50b131", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dac291cd612c44ceb260e5c601dbc4a7", async() => {
                 BeginContext(608, 25, true);
                 WriteLiteral("\n        <p>\n            ");
                 EndContext();

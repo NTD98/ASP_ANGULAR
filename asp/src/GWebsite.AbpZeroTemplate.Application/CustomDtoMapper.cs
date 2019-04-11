@@ -30,6 +30,8 @@ namespace GWebsite.AbpZeroTemplate.Applications
             configuration.CreateMap<AssetDto, Asset>();
             configuration.CreateMap<Asset, AssetForViewDto>();
             configuration.CreateMap<AssetForViewDto, Asset>();
+            configuration.CreateMap<Asset, AssetInput>();
+            configuration.CreateMap<AssetInput, Asset>();
         }
     }
 }

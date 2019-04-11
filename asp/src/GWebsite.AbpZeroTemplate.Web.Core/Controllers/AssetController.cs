@@ -29,5 +29,10 @@ namespace GWebsite.AbpZeroTemplate.Application.Controllers
         {
             return assetAppService.GetAssets(assetFilter);
         }
+        [HttpPost]
+        public async Task<AssetDto> CreateAsset([FromBody] AssetInput input)
+        {
+            return await assetAppService.CreateAsset(input);
+        }
     }
 }

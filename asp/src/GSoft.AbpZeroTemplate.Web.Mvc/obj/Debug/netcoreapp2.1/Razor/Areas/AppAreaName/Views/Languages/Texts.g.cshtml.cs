@@ -83,7 +83,7 @@ using GSoft.AbpZeroTemplate.Web.Startup;
                 WriteLiteral("\n    ");
                 EndContext();
                 BeginContext(328, 122, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2046242f9c6c43dc93dfbf8a7b2413e8", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9a032520e8bc410e961f386a5f731d42", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper>();
@@ -117,7 +117,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
                 WriteLiteral("\n    ");
                 EndContext();
                 BeginContext(476, 120, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "097fb558196d4e90af29a97ac8c25902", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc1c8c2194c446de9caa0af5cef9f840", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper>();
@@ -202,7 +202,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
             WriteLiteral("                                    ");
             EndContext();
             BeginContext(1817, 248, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc8137ea4f5a426eb40a0d10cafcb3df", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d536dcf3212f4f1d84247c9f1b26e09f", async() => {
                 BeginContext(1927, 43, true);
                 WriteLiteral("\n                                        <i");
                 EndContext();
@@ -298,7 +298,7 @@ AddHtmlAttributeValue("", 1885, language.Name==Model.BaseLanguageName, 1885, 40,
             WriteLiteral("                                    ");
             EndContext();
             BeginContext(2775, 244, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c4114e0c3fb949d0b69a8d67c43b0e7b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1168478d270b41db97f7a0f5fffc7a1d", async() => {
                 BeginContext(2881, 43, true);
                 WriteLiteral("\n                                        <i");
                 EndContext();
@@ -413,7 +413,7 @@ AddHtmlAttributeValue("", 2843, language.Name==Model.LanguageName, 2843, 36, fal
             WriteLiteral("</label>\n                            <select id=\"TargetValueFilterSelectionCombobox\" class=\"form-control bs-select\" name=\"TargetValue\">\n                                ");
             EndContext();
             BeginContext(4247, 85, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "852e2f716a124a92bf68b1a678cf4828", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "83fc423bc4da4f12bb996607a9690823", async() => {
                 BeginContext(4315, 8, false);
 #line 85 "D:\ASP ANGULAR\asp\src\GSoft.AbpZeroTemplate.Web.Mvc\Areas\AppAreaName\Views\Languages\Texts.cshtml"
                                                                                               Write(L("All"));
@@ -446,7 +446,7 @@ AddHtmlAttributeValue("", 4277, Model.TargetValueFilter == "ALL", 4277, 35, fals
             WriteLiteral("\n                                ");
             EndContext();
             BeginContext(4365, 95, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f700f108b8694ec88f665f27f7b52ad1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "acb91cbaea0041afae5ee97a76e55291", async() => {
                 BeginContext(4437, 14, false);
 #line 86 "D:\ASP ANGULAR\asp\src\GSoft.AbpZeroTemplate.Web.Mvc\Areas\AppAreaName\Views\Languages\Texts.cshtml"
                                                                                                   Write(L("EmptyOnes"));

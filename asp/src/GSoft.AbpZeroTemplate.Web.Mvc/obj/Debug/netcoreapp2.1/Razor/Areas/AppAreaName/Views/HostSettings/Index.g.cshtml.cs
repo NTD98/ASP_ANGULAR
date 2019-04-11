@@ -89,7 +89,7 @@ using GSoft.AbpZeroTemplate.Web.Areas.AppAreaName.Startup;
                 WriteLiteral("\n    ");
                 EndContext();
                 BeginContext(323, 115, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "235582618061458f8c0a0885803f8886", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7002cd2072e64f1d89b0e968568d262c", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper>();
@@ -270,7 +270,7 @@ WriteAttributeValue(" ", 1782, (!Clock.SupportsMultipleTimezone) ? "active" : ""
             WriteLiteral("                        <div class=\"tab-pane active\" id=\"SettingsGeneralTab\" SettingsEmailSmtpTab>\n                            ");
             EndContext();
             BeginContext(3322, 621, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "756917c7ed04410985f2d7dc26d85d1c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "946089a98d36403ea29f1be3969034f9", async() => {
                 BeginContext(3353, 117, true);
                 WriteLiteral("\n                                <div class=\"form-group \">\n                                    <label for=\"Timezone\">");
                 EndContext();
@@ -342,7 +342,7 @@ WriteAttributeValue("  ", 4038, (!Clock.SupportsMultipleTimezone) ? "active" : "
             WriteLiteral(" id=\"SettingsTenantManagementTab\" SettingsEmailSmtpTab>\n\n                        ");
             EndContext();
             BeginContext(4174, 2594, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "68b95dd3f1364049a4c8a560175ea9ea", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5f950136197942ffb788f4c4dfd47b3b", async() => {
                 BeginContext(4214, 33, true);
                 WriteLiteral("\n                            <h5>");
                 EndContext();
@@ -491,7 +491,7 @@ WriteAttributeValue("  ", 4038, (!Clock.SupportsMultipleTimezone) ? "active" : "
             WriteLiteral("\n                    </div>\n\n                    <div class=\"tab-pane\" id=\"SettingsUserManagementTab\" SettingsEmailSmtpTab>\n                        ");
             EndContext();
             BeginContext(6916, 1182, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1bf190b3bfdd48318e446107b1dd1fb9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3712382be57e4c24b1346ab39e5aec96", async() => {
                 BeginContext(6954, 334, true);
                 WriteLiteral(@"
                             <div class=""m-checkbox-list"">
@@ -593,7 +593,7 @@ WriteAttributeValue("  ", 4038, (!Clock.SupportsMultipleTimezone) ? "active" : "
             WriteLiteral("\n                                <span></span>\n                            </label>\n                            <hr />\n                            ");
             EndContext();
             BeginContext(8859, 2791, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bccf8ea7b9bf45f286576c5ddfef1e4b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bda5f66973f142daa0aa083ac70471b6", async() => {
                 BeginContext(8996, 313, true);
                 WriteLiteral(@"
                                 <div class=""m-checkbox-list"">
@@ -738,7 +738,7 @@ AddHtmlAttributeValue("", 8908, Model.Settings.Security.UseDefaultPasswordComple
             WriteLiteral("\n                            ");
             EndContext();
             BeginContext(11679, 2975, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f3cc22ec119244c5a030939e3d3cbf4c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8be5164d9f984f94bb9de0d9e7306d36", async() => {
                 BeginContext(11824, 327, true);
                 WriteLiteral(@"
                                 <div class=""m-checkbox-list"">
@@ -898,7 +898,7 @@ AddHtmlAttributeValue("", 11735, !Model.Settings.Security.UseDefaultPasswordComp
             WriteLiteral("</h5>\n                            ");
             EndContext();
             BeginContext(14800, 1491, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "477ee39a25e94143b2be1dc271721ebf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3b6937181974b86b1f6ae88b38a9a68", async() => {
                 BeginContext(14835, 220, true);
                 WriteLiteral("\n                                <label for=\"Setting_UserLockOut_IsEnabled\" class=\"m-checkbox\">\n                                    <input id=\"Setting_UserLockOut_IsEnabled\" type=\"checkbox\" name=\"IsEnabled\" value=\"true\" ");
                 EndContext();
@@ -991,7 +991,7 @@ WriteAttributeValue("", 16149, Model.Settings.Security.UserLockOut.DefaultAccoun
             WriteLiteral("</h5>\n                            ");
             EndContext();
             BeginContext(16440, 2849, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0601e4fd28d94aa892161e98b0bc449a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71b29fc75246492a810ef0fe0185c0b8", async() => {
                 BeginContext(16478, 296, true);
                 WriteLiteral(@"
                                 <div class=""m-checkbox-list"">
@@ -1133,7 +1133,7 @@ WriteAttributeValue("", 16149, Model.Settings.Security.UserLockOut.DefaultAccoun
             WriteLiteral("\n                        </div>\n                    </div>\n\n                    <div class=\"tab-pane\" id=\"SettingsEmailSmtpTab\">\n                        ");
             EndContext();
             BeginContext(19442, 4714, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9fca79a3c1bb408b80f0f8aaa72f97c0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "431967fd083649efae4e68e7f657aece", async() => {
                 BeginContext(19475, 118, true);
                 WriteLiteral("\n                            <div class=\"form-group\">\n                                <label for=\"DefaultFromAddress\">");
                 EndContext();
@@ -1430,7 +1430,7 @@ WriteAttributeValue("", 23782, ViewBag.CurrentUserEmail, 23782, 25, false);
             WriteLiteral("\n                    </div>\n\n                    <div class=\"tab-pane\" id=\"BillingTab\">\n                        ");
             EndContext();
             BeginContext(24268, 730, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1667c615d64141348c27cfc0e21eb217", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bad83240d1d947869107e3a737baa557", async() => {
                 BeginContext(24314, 109, true);
                 WriteLiteral("\n                            <div class=\"form-group\">\n                                <label for=\"LegalName\">");
                 EndContext();

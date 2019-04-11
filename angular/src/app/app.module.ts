@@ -3,6 +3,7 @@ import * as ngCommon from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http'
 import { QuickSideBarChat } from '@app/shared/layout/chat/QuickSideBarChat';
 import { ChatSignalrService } from '@app/shared/layout/chat/chat-signalr.service';
 import { LinkAccountModalComponent } from '@app/shared/layout/link-account-modal.component';
@@ -34,6 +35,7 @@ import { UserNotificationHelper } from './shared/layout/notifications/UserNotifi
 import { HeaderNotificationsComponent } from './shared/layout/notifications/header-notifications.component';
 import { NotificationSettingsModalComponent } from './shared/layout/notifications/notification-settings-modal.component';
 import { NotificationsComponent } from './shared/layout/notifications/notifications.component';
+import { from } from 'rxjs';
 
 @NgModule({
     declarations: [
@@ -57,6 +59,7 @@ import { NotificationsComponent } from './shared/layout/notifications/notificati
         ChatMessageComponent
     ],
     imports: [
+        HttpClientModule,
         ngCommon.CommonModule,
         FormsModule,
         HttpModule,

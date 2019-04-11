@@ -42,6 +42,7 @@ namespace GWebsite.AbpZeroTemplate.Core.Authorization
             testModels.CreateChildPermission(GWebsitePermissions.Pages_Administration_TestModel_Delete, L("DeletingTestModel"));
 
             var Assets = gwebsite.CreateChildPermission(GWebsitePermissions.Pages_Administration_Asset, L("Asset"));
+            Assets.CreateChildPermission(GWebsitePermissions.Pages_Administration_Asset_Create, L("CreatingNewAsset"));
 
             var orderPackages = gwebsite.CreateChildPermission(GWebsitePermissions.Pages_Administration_MenuClient, L("OrderPackage"));
             orderPackages.CreateChildPermission(GWebsitePermissions.Pages_Administration_MenuClient_Create, L("CreatingNewOrderPackage"));

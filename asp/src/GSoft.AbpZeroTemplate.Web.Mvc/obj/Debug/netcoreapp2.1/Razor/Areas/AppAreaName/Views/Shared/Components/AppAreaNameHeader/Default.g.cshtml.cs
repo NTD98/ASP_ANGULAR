@@ -361,7 +361,7 @@ WriteAttributeValue("", 6950, L("Languages"), 6950, 15, false);
             WriteLiteral("                                                <li role=\"none\">\n                                                    ");
             EndContext();
             BeginContext(7337, 560, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27752d27f69e468ea51f19ae7b3e4d29", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2579002574fd409ca60e11eb92121c8d", async() => {
                 BeginContext(7731, 59, true);
                 WriteLiteral("\n                                                        <i");
                 EndContext();
@@ -1079,7 +1079,7 @@ WriteAttributeValue("", 28153, Url.Action("Index", "SubscriptionManagement", new
             WriteLiteral("\n</header>\n\n\n\n");
             EndContext();
             BeginContext(28895, 489, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "50e5d6ecfb57491bbfc0533a9c1dd9cf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dfbda3a2582140c99e1b82c42ccae6a3", async() => {
                 BeginContext(28961, 414, true);
                 WriteLiteral(@"
     {{#items}}
@@ -1114,7 +1114,7 @@ WriteAttributeValue("", 28153, Url.Action("Index", "SubscriptionManagement", new
             WriteLiteral("\n");
             EndContext();
             BeginContext(29385, 4172, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c3b52e45247640c58c4a972af20844af", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "007ba7c2ff9e4d1d9c68ec545bdde521", async() => {
                 BeginContext(29451, 337, true);
                 WriteLiteral(@"
     <a href=""#"" class=""m-nav__link m-dropdown__toggle"" id=""m_topbar_notification_icon_not"">

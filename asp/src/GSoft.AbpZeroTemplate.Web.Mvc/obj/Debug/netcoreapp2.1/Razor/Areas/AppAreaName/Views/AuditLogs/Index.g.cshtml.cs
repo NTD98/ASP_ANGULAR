@@ -80,7 +80,7 @@ using GSoft.AbpZeroTemplate.Web.Areas.AppAreaName.Startup;
                 WriteLiteral("\n    ");
                 EndContext();
                 BeginContext(156, 122, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e5a46f864c9a4ccbb677f65699623a30", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6c51736c5c78411facb2a6d61809f786", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper>();
@@ -117,7 +117,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
                 WriteLiteral("\n    ");
                 EndContext();
                 BeginContext(305, 112, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5032576f831343f78aaf1b07cf4cbd9b", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8a6a3d4078e48748ead6d34ae6a2bf6", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper>();
@@ -225,7 +225,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
             WriteLiteral("</button>\n                                </div>\n                            </div>\n                            <div class=\"m-form m-form--label-align-right\">\n                                ");
             EndContext();
             BeginContext(2278, 5332, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "35fc2ec712db426fb66427baa55e2fd9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dccd0a8ada1e4ce8aa8aae30cca35a19", async() => {
                 BeginContext(2308, 323, true);
                 WriteLiteral(@"
                                     <div class=""row align-items-center m--margin-bottom-10"">
@@ -331,7 +331,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                 WriteLiteral("</label>\n                                                <select id=\"HasException\" name=\"HasException\" class=\"form-control\">\n                                                    ");
                 EndContext();
                 BeginContext(5833, 35, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a359d0ed5b314c8f8d75c1a36cc14a9e", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "67dc8a666a2d44ab940a0823352183d6", async() => {
                     BeginContext(5851, 8, false);
 #line 97 "D:\ASP ANGULAR\asp\src\GSoft.AbpZeroTemplate.Web.Mvc\Areas\AppAreaName\Views\AuditLogs\Index.cshtml"
                                                                 Write(L("All"));
@@ -357,7 +357,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                 WriteLiteral("\n                                                    ");
                 EndContext();
                 BeginContext(5921, 44, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cbdacc71d0204429b990846f9ead0230", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c68d3e9cbd334bd38630d524fc15e47c", async() => {
                     BeginContext(5944, 12, false);
 #line 98 "D:\ASP ANGULAR\asp\src\GSoft.AbpZeroTemplate.Web.Mvc\Areas\AppAreaName\Views\AuditLogs\Index.cshtml"
                                                                      Write(L("Success"));
@@ -383,7 +383,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                 WriteLiteral("\n                                                    ");
                 EndContext();
                 BeginContext(6018, 44, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eacd6a1e3ad64bdfb4588337ab4e4df7", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c5979f96257e46e7b81c7ac2d158ac56", async() => {
                     BeginContext(6040, 13, false);
 #line 99 "D:\ASP ANGULAR\asp\src\GSoft.AbpZeroTemplate.Web.Mvc\Areas\AppAreaName\Views\AuditLogs\Index.cshtml"
                                                                     Write(L("HasError"));
@@ -594,7 +594,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
             WriteLiteral("</button>\n                                </div>\n                            </div>\n                            <div class=\"m-form m-form--label-align-right\">\n                                ");
             EndContext();
             BeginContext(9556, 1872, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ede8592897a84a5f8864992580e40599", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae574f007fec4f579af1af729fd4d85d", async() => {
                 BeginContext(9590, 335, true);
                 WriteLiteral(@"
                                     <div class=""row align-items-center m--margin-bottom-10"">
@@ -645,7 +645,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                 WriteLiteral("</label>\n                                                <select id=\"EntityTypeFullName\" name=\"EntityTypeFullName\" class=\"form-control\" id=\"EntityTypeFullName\">\n                                                    ");
                 EndContext();
                 BeginContext(11134, 55, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a94cee86a977403cbf00ad595a530552", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e80789f82b1245d1a6d67ff3d1c1c601", async() => {
                     BeginContext(11172, 8, false);
 #line 170 "D:\ASP ANGULAR\asp\src\GSoft.AbpZeroTemplate.Web.Mvc\Areas\AppAreaName\Views\AuditLogs\Index.cshtml"
                                                                                     Write(L("All"));
@@ -766,7 +766,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
             WriteLiteral("</span>\n                </h4>\n            </div>\n            <div class=\"modal-body\">\n                ");
             EndContext();
             BeginContext(12859, 6152, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c7b36d84208c41c8a042e1ff272f8c21", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "14218ae63d904e28a15395a503bd4acf", async() => {
                 BeginContext(12923, 94, true);
                 WriteLiteral("\n                    <div class=\"form-body\">\n                        <h5 class=\"form-section\">");
                 EndContext();

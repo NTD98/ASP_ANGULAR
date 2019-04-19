@@ -29,7 +29,7 @@ namespace GWebsite.AbpZeroTemplate.EntityFrameworkCore
         public virtual DbSet<AssetCategory> AssetCategories { get; set; }
         public virtual DbSet<Asset> Assets { get; set; }
 
-        public virtual DbSet<Core.Models.Dat.Asset> Dat_Assets { get; set }
+        public virtual DbSet<Core.Models.Dat.Asset> Dat_Assets { get; set; }
 
         /// <summary>
         /// GPermissions dùng cho bên Gwebsite

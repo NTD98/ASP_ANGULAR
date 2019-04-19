@@ -1,6 +1,7 @@
 ###################
 # compiled source #
 ###################
+App_Data/**
 *.com
 *.class
 *.dll

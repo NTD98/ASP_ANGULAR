@@ -2,10 +2,6 @@
 using GWebsite.AbpZeroTemplate.Application.Share.Depreciations;
 using GWebsite.AbpZeroTemplate.Application.Share.Depreciations.Dto;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace GWebsite.AbpZeroTemplate.Application.Controllers
@@ -54,6 +50,12 @@ namespace GWebsite.AbpZeroTemplate.Application.Controllers
         public async Task DeleteDepreciation(int id)
         {
             await _depreciationAppService.DeleteDepreciationAsync(new EntityDto<int>() { Id = id });
+        }
+
+        [HttpGet]
+        public async Task<GetDepreciationOutput> GetDepreciationForEdit(int id)
+        {
+            return await _depreciationAppService.GetDepreciationForEditAsync(new NullableIdDto() { Id = id });
         }
     }
 }

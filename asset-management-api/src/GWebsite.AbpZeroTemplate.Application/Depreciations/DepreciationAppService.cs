@@ -1,4 +1,5 @@
-﻿using Abp.Application.Services.Dto;
+﻿
+using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Domain.Repositories;
 using Abp.Extensions;
@@ -8,6 +9,7 @@ using GWebsite.AbpZeroTemplate.Application.Share.Depreciations.Dto;
 using GWebsite.AbpZeroTemplate.Core.Authorization;
 using GWebsite.AbpZeroTemplate.Core.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
@@ -77,6 +79,28 @@ namespace GWebsite.AbpZeroTemplate.Application.Depreciations
             Depreciation entity = await _depreciationRepository.GetAsync(input.Id);
             _ = await _depreciationRepository.UpdateAsync(entity);
             await CurrentUnitOfWork.SaveChangesAsync();
+        }
+
+        public async Task<GetDepreciationOutput> GetDepreciationForEditAsync(NullableIdDto input)
+        {
+            Depreciation depreciation = null;
+            if (input.Id.HasValue && input.Id.Value > 0)
+            {
+                depreciation = await _depreciationRepository.GetAsync(input.Id.Value);
+            }
+            GetDepreciationOutput output = new GetDepreciationOutput
+            {
+                Depreciation = depreciation != null
+                ? ObjectMapper.Map<DepreciationDto>(depreciation)
+                : new DepreciationDto()
+            };
+
+            int parentMenuId = output.Depreciation.Id;
+            output.Depreciations = await _depreciationRepository.GetAll()
+                .Select(c => new ComboboxItemDto(c.Id.ToString(), c.Name) { IsSelected = parentMenuId == c.Id })
+                .ToListAsync();
+
+            return output;
         }
     }
 }

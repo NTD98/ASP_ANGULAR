@@ -44,6 +44,12 @@ namespace GWebsite.AbpZeroTemplate.Applications
             configuration.CreateMap<Asset, AssetDto>();
             configuration.CreateMap<CreateAssetInput, Asset>();
             configuration.CreateMap<UpdateAssetInput, Asset>();
+
+            // Dat Asset
+            configuration.CreateMap<Core.Models.Dat.Asset, Application.Share.Dat_Assets.Dto.AssetDto>();
+            configuration.CreateMap<Application.Share.Dat_Assets.Dto.AssetFilter, Core.Models.Dat.Asset>();
+            configuration.CreateMap<Application.Share.Dat_Assets.Dto.AssetForViewDto, Core.Models.Dat.Asset>();
+            configuration.CreateMap<Application.Share.Dat_Assets.Dto.AssetInput, Core.Models.Dat.Asset>();
         }
     }
 }

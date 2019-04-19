@@ -1,23 +1,23 @@
 ﻿using Abp.Application.Services.Dto;
-using Abp.Domain.Repositories;
 using Abp.Authorization;
+using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
-using GWebsite.AbpZeroTemplate.Core.Authorization;
 using GWebsite.AbpZeroTemplate.Application;
-using GWebsite.AbpZeroTemplate.Application.Share.Assets;
-using GWebsite.AbpZeroTemplate.Application.Share.Assets.Dto;
-using GWebsite.AbpZeroTemplate.Core.Models;
-using System.Linq;
+using GWebsite.AbpZeroTemplate.Application.Share.Dat_Assets;
+using GWebsite.AbpZeroTemplate.Application.Share.Dat_Assets.Dto;
+using GWebsite.AbpZeroTemplate.Core.Authorization;
+using GWebsite.AbpZeroTemplate.Core.Models.Dat;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
-namespace GWebsite.AbpZeroTemplate.Web.Core.Assets
+namespace GWebsite.AbpZeroTemplate.Web.Core.Dat_Assets
 {
 
     public class AssetAppService : GWebsiteAppServiceBase, IAssetAppService
     {
         private readonly IRepository<Asset> assetRepository;
-        
+
         public AssetAppService(IRepository<Asset> assetRepository)
         {
             this.assetRepository = assetRepository;
@@ -25,20 +25,20 @@ namespace GWebsite.AbpZeroTemplate.Web.Core.Assets
         [AbpAuthorize(GWebsitePermissions.Pages_Administration_Asset_Create)]
         public async Task<AssetDto> CreateAsset(AssetInput assetInput)
         {
-            var entity = ObjectMapper.Map<Asset>(assetInput);
+            Asset entity = ObjectMapper.Map<Asset>(assetInput);
             entity = await assetRepository.InsertAsync(entity);
             return ObjectMapper.Map<AssetDto>(entity);
         }
         public async Task<ListResultDto<AssetForViewDto>> GetAssetForView()
         {
-            var items = await assetRepository.GetAllListAsync();
+            List<Asset> items = await assetRepository.GetAllListAsync();
             return new ListResultDto<AssetForViewDto>(
                 items.Select(item => ObjectMapper.Map<AssetForViewDto>(item)).ToList());
         }
 
         public PagedResultDto<AssetDto> GetAssets(AssetFilter input)
         {
-            var query = assetRepository.GetAll().Where(x => x.IsDelete == false);
+            IQueryable<Asset> query = assetRepository.GetAll().Where(x => x.IsDelete == false);
 
             // filter by Area
             if (input.Area != null)
@@ -76,7 +76,7 @@ namespace GWebsite.AbpZeroTemplate.Web.Core.Assets
             {
                 query = query.Where(x => x.Serinumber.ToLower().Contains(input.Serinumber.ToLower()));
             }
-            var totalCount = query.Count();
+            int totalCount = query.Count();
 
             // sorting
             if (!string.IsNullOrWhiteSpace(input.Sorting))
@@ -85,7 +85,7 @@ namespace GWebsite.AbpZeroTemplate.Web.Core.Assets
             }
 
             // paging
-            var items = query.PageBy(input).ToList();
+            List<Asset> items = query.PageBy(input).ToList();
 
             // result
             return new PagedResultDto<AssetDto>(

@@ -1,12 +1,8 @@
 ﻿using Abp.Application.Services.Dto;
-using GWebsite.AbpZeroTemplate.Application.Share.Assets.Dto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using GWebsite.AbpZeroTemplate.Application.Share.Dat_Assets.Dto;
 using System.Threading.Tasks;
 
-namespace GWebsite.AbpZeroTemplate.Application.Share.Assets
+namespace GWebsite.AbpZeroTemplate.Application.Share.Dat_Assets
 {
     public interface IAssetAppService
     {

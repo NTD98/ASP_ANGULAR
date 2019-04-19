@@ -36,6 +36,7 @@ import { HeaderNotificationsComponent } from './shared/layout/notifications/head
 import { NotificationSettingsModalComponent } from './shared/layout/notifications/notification-settings-modal.component';
 import { NotificationsComponent } from './shared/layout/notifications/notifications.component';
 import { from } from 'rxjs';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
     declarations: [
@@ -76,7 +77,8 @@ import { from } from 'rxjs';
         TableModule,
         PaginatorModule,
         PrimeNgFileUploadModule,
-        ProgressBarModule
+        ProgressBarModule,
+        NgxPaginationModule,
     ],
     providers: [
         ImpersonationService,

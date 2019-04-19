@@ -8,6 +8,7 @@ import { AssetDto } from './dto/asset.dto'
 import {CreateAsset} from './create-asset.component'
 import { Table } from 'primeng/components/table/table';
 import { isNullOrUndefined } from 'util';
+
 @Component({
   selector: 'app-asset',
   templateUrl: './asset.component.html',
@@ -33,6 +34,7 @@ export class AssetComponent extends AppComponentBase implements OnInit {
   searchTerm: string;
   searchTermAN: string;
   searchTermSR:string;
+  p : Number=1;
   get Area():string{
     return this.area;
   }
@@ -127,24 +129,25 @@ export class AssetComponent extends AppComponentBase implements OnInit {
     if(!isNullOrUndefined(this.searchTerm))
       term1="Area="+this.SearchTerm;
     else
-      term1=null;
+      term1="";
     if(!isNullOrUndefined(this.searchTermAN))
       term2 ="&AssetName="+this.searchTermAN;
     else
-      term2=null;
+      term2="";
     if(!isNullOrUndefined(this.searchTermSR))
       term3="&Serinumber="+this.searchTermSR;
     else{
-        term3=null;
+      console.log("null");
+        term3="";
       }
-      console.log(this.searchTerm+this.searchTermAN+this.searchTermSR);
+      console.log(term1+" "+term2+" "+term3);
     
       this.http.get("http://localhost:5000/api/Asset/GetAssetsByFilter?"+term1+term2+term3).subscribe(data=>{
       this.assets = data;
     });
     this.searchTerm=this.searchTerm;
-    this.SearchTeamAN="";
-    this.searchTermSR="";
+    this.SearchTeamAN=this.SearchTeamAN;
+    this.searchTermSR=this.searchTermSR;
     //this.reloadPage();
     
   }

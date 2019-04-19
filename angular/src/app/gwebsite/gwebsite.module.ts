@@ -12,7 +12,7 @@ import {AssetComponent} from './asset/asset.component'
 import { MenuClientComponent, CreateOrEditMenuClientModalComponent } from './index';
 import {TestModuleComponent, CreateOrEditTestModuleModalComponent} from './index';
 import { from } from 'rxjs';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
     imports: [
         FormsModule,
@@ -30,7 +30,8 @@ import { from } from 'rxjs';
         PrimeNgFileUploadModule,
         AutoCompleteModule,
         EditorModule,
-        InputMaskModule
+        InputMaskModule,
+        NgxPaginationModule,
     ],
     declarations: [
         MenuClientComponent, CreateOrEditMenuClientModalComponent,

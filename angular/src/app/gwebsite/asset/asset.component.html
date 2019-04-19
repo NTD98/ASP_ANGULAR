@@ -35,7 +35,7 @@
           <th>Originalprice</th>
         </tr>
         <tbody *ngIf="assets">
-        <tr *ngFor="let asset of assets.result.items; let i = index ">
+        <tr *ngFor="let asset of assets.result.items | paginate: { itemsPerPage: 6, currentPage: p }; let i = index ">
           <td>{{i}}</td>
           <td>{{asset.area}}</td>
           <td>{{asset.unitcode}}</td>
@@ -48,6 +48,7 @@
         </tr>      
       </tbody> 
       </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
       <br><br>
       <div>
       <div id="lbtext">

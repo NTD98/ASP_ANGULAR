@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 
 namespace GWebsite.AbpZeroTemplate.Application.Controllers
 {
-    [Route("api/[controller]/[action]")]
-    public class Dat_AssetController : GWebsiteControllerBase
-    {
-        private readonly IAssetAppService assetAppService;
+    //[Route("api/[controller]/[action]")]
+    //public class AssetController : GWebsiteControllerBase
+    //{
+    //    private readonly IAssetAppService assetAppService;
 
-        public Dat_AssetController(IAssetAppService assetAppService)
-        {
-            this.assetAppService = assetAppService;
-        }
-        [HttpGet]
-        public Task<ListResultDto<AssetForViewDto>> GetAssets()
-        {
-            return assetAppService.GetAssetForView();
-        }
-        [HttpGet]
-        public PagedResultDto<AssetDto> GetAssetsByFilter(AssetFilter assetFilter)
-        {
-            return assetAppService.GetAssets(assetFilter);
-        }
-        [HttpPost]
-        public async Task<AssetDto> CreateAsset([FromBody] AssetInput input)
-        {
-            return await assetAppService.CreateAsset(input);
-        }
-    }
+    //    public AssetController(IAssetAppService assetAppService)
+    //    {
+    //        this.assetAppService = assetAppService;
+    //    }
+    //    [HttpGet]
+    //    public Task<ListResultDto<AssetForViewDto>> GetAssets()
+    //    {
+    //        return assetAppService.GetAssetForView();
+    //    }
+    //    [HttpGet]
+    //    public PagedResultDto<AssetDto> GetAssetsByFilter(AssetFilter assetFilter)
+    //    {
+    //        return assetAppService.GetAssets(assetFilter);
+    //    }
+    //    [HttpPost]
+    //    public async Task<AssetDto> CreateAsset([FromBody] AssetInput input)
+    //    {
+    //        return await assetAppService.CreateAsset(input);
+    //    }
+    //}
 }

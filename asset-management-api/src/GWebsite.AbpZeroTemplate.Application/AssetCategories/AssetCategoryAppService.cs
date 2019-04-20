@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 namespace GWebsite.AbpZeroTemplate.Application.AssetCategories
 
 {
-    [AbpAuthorize(GWebsitePermissions.Pages_Administration_AssetCategory)]
+    //[AbpAuthorize(GWebsitePermissions.Pages_Administration_AssetCategory)]
     public class AssetCategoryAppService : GWebsiteAppServiceBase, IAssetCategoryAppService
     {
         private readonly IRepository<AssetCategory, int> repository;

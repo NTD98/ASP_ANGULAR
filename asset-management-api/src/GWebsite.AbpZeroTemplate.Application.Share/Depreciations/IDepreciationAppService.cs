@@ -17,5 +17,7 @@ namespace GWebsite.AbpZeroTemplate.Application.Share.Depreciations
         Task<DepreciationDto> UpdateDepreciationAsync(UpdateDepreciationInput input);
 
         Task DeleteDepreciationAsync(EntityDto<int> input);
+
+        Task<GetDepreciationOutput> GetDepreciationForEditAsync(NullableIdDto nullableIdDto);
     }
 }

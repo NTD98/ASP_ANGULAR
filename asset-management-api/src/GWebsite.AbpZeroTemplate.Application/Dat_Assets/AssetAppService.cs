@@ -13,12 +13,12 @@ using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
 namespace GWebsite.AbpZeroTemplate.Web.Core.Dat_Assets
 {
-
-    public class AssetAppService : GWebsiteAppServiceBase, IAssetAppService
+    //[AbpAuthorize(GWebsitePermissions.Pages_Administration_Asset)]
+    public class DatAssetAppService : GWebsiteAppServiceBase, IAssetAppService
     {
         private readonly IRepository<Asset> assetRepository;
 
-        public AssetAppService(IRepository<Asset> assetRepository)
+        public DatAssetAppService(IRepository<Asset> assetRepository)
         {
             this.assetRepository = assetRepository;
         }

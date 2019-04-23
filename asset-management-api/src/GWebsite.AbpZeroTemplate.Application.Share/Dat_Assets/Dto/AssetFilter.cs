@@ -2,19 +2,19 @@
 using GWebsite.AbpZeroTemplate.Core.Models;
 using System;
 
-namespace GWebsite.AbpZeroTemplate.Application.Share.Dat_Assets.Dto
+namespace GWebsite.AbpZeroTemplate.Application.Share.Assets.Dto
 {
     /// <summary>
     /// <model cref="Asset"></model>
     /// </summary>
     public class AssetFilter : PagedAndSortedInputDto
     {
-        public string Area { get; set; }
-        public string Unitcode { get; set; }
-        public string Areacode { get; set; }
-        public string Transaction { get; set; }
-        public string Assetcode { get; set; }
-        public string Assetname { get; set; }
-        public string Serinumber { get; set; }
+        public String Area { get; set; }
+        public String Unitcode { get; set; }
+        public String Areacode { get; set; }
+        public String Transaction { get; set; }
+        public String Assetcode { get; set; }
+        public String Assetname { get; set; }
+        public String Serinumber { get; set; }
     }
 }

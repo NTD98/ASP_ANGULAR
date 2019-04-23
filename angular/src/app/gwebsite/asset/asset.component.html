@@ -45,6 +45,7 @@
           <td>{{asset.assetname}}</td>
           <td>{{asset.serinumber}}</td>
           <td>{{asset.originalprice}}</td>
+          <button type="submit" id="edit" (click)="getAssetForEdit(asset.id)"><i class="icon-refresh"></i></button>
         </tr>      
       </tbody> 
       </table>
@@ -52,7 +53,7 @@
       <br><br>
       <div>
       <div id="lbtext">
-          <h3>Create Asset</h3>
+          <h3>Create/Update Asset</h3>
         </div>        
         <div>
           <label>Area: </label>

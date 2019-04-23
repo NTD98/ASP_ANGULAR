@@ -1,8 +1,12 @@
 ﻿using Abp.Application.Services.Dto;
-using GWebsite.AbpZeroTemplate.Application.Share.Dat_Assets.Dto;
+using GWebsite.AbpZeroTemplate.Application.Share.Assets.Dto;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace GWebsite.AbpZeroTemplate.Application.Share.Dat_Assets
+namespace GWebsite.AbpZeroTemplate.Application.Share.Assets
 {
     public interface IAssetAppService
     {
@@ -10,5 +14,7 @@ namespace GWebsite.AbpZeroTemplate.Application.Share.Dat_Assets
         PagedResultDto<AssetDto> GetAssets(AssetFilter input);
         Task<ListResultDto<AssetForViewDto>> GetAssetForView();
         Task<AssetDto> CreateAsset(AssetInput assetInput);
+        Task<GetAssetOutput> GetAssetForEditAsync(NullableIdDto input);
+        Task<AssetDto> UpdateAssetAsync(UpdateAssetInput input);
     }
 }

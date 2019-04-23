@@ -30,5 +30,15 @@ namespace GWebsite.AbpZeroTemplate.Application.Controllers
     //    {
     //        return await assetAppService.CreateAsset(input);
     //    }
+    //    [HttpPut]
+    //    public async Task<AssetDto> UpdateAsset([FromBody] UpdateAssetInput input)
+    //    {
+    //        return await assetAppService.UpdateAssetAsync(input);
+    //    }
+    //    [HttpGet]
+    //    public async Task<GetAssetOutput> GetAssetForEdit(int id)
+    //    {
+    //        return await assetAppService.GetAssetForEditAsync(new NullableIdDto() { Id = id });
+    //    }
     //}
 }

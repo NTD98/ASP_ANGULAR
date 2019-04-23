@@ -1,92 +1,129 @@
 ﻿using Abp.Application.Services.Dto;
-using Abp.Authorization;
 using Abp.Domain.Repositories;
+using Abp.Authorization;
 using Abp.Linq.Extensions;
+using GWebsite.AbpZeroTemplate.Core.Authorization;
+using GWebsite.AbpZeroTemplate.Application;
 using GWebsite.AbpZeroTemplate.Application.Share.Assets;
 using GWebsite.AbpZeroTemplate.Application.Share.Assets.Dto;
-using GWebsite.AbpZeroTemplate.Core.Authorization;
 using GWebsite.AbpZeroTemplate.Core.Models;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 using System.Linq.Dynamic.Core;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
-namespace GWebsite.AbpZeroTemplate.Application.Assets
+namespace GWebsite.AbpZeroTemplate.Web.Core.Assets
 {
-    [Abp.Authorization.AbpAuthorize(GWebsitePermissions.Pages_Administration_Asset)]
 
     public class AssetAppService : GWebsiteAppServiceBase, IAssetAppService
     {
-        private readonly IRepository<Asset, int> repository;
-        private readonly IRepository<AssetCategory, int> repositoryCategory;
-        public AssetAppService(IRepository<Asset, int> repository, IRepository<AssetCategory, int> repositoryCategory)
+        private readonly IRepository<Asset> assetRepository;
+        
+        public AssetAppService(IRepository<Asset> assetRepository)
         {
-            this.repository = repository;
-            this.repositoryCategory = repositoryCategory;
+            this.assetRepository = assetRepository;
         }
         [AbpAuthorize(GWebsitePermissions.Pages_Administration_Asset_Create)]
-        public AssetDto CreateAsset(CreateAssetInput input)
+        public async Task<AssetDto> CreateAsset(AssetInput assetInput)
         {
-            Asset asset = ObjectMapper.Map<Asset>(input);
-            asset = repository.Insert(asset);
-            CurrentUnitOfWork.SaveChanges();
-            return ObjectMapper.Map<AssetDto>(asset);
+            var entity = ObjectMapper.Map<Asset>(assetInput);
+            entity = await assetRepository.InsertAsync(entity);
+            return ObjectMapper.Map<AssetDto>(entity);
         }
-        [AbpAuthorize(GWebsitePermissions.Pages_Administration_Asset_Delete)]
-        public void DeleteAsset(int id)
+        public async Task<AssetDto> UpdateAssetAsync(UpdateAssetInput input)
         {
-            Asset asset = repository.Get(id);
-            asset.IsDeleted = true;
-            repository.Update(asset);
-            CurrentUnitOfWork.SaveChanges();
+            var entity = await assetRepository.GetAsync(input.Id);
+            ObjectMapper.Map(input, entity);
+            entity = await assetRepository.UpdateAsync(entity);
+            await CurrentUnitOfWork.SaveChangesAsync();
+            return ObjectMapper.Map<AssetDto>(entity);
         }
 
-        public GetAssetOuput GetAssetForEdit(NullableIdDto input)
+        public async Task<GetAssetOutput> GetAssetForEditAsync(NullableIdDto input)
         {
-            Asset asset = null;
-            if(input.Id.HasValue && input.Id > 0)
+            Asset menuClient = null;
+            if (input.Id.HasValue && input.Id.Value > 0)
             {
-                asset = repository.Get(input.Id.Value);
+                menuClient = await assetRepository.GetAsync(input.Id.Value);
             }
-            var output = new GetAssetOuput
-            {
-                Asset = asset is null ?
-                new AssetDto() :
-                ObjectMapper.Map<AssetDto>(asset)
-            };
+            var output = new GetAssetOutput();
 
-            int parentMenuId = output.Asset.Id;
-            output.Assets = repository.GetAll()
-                .Where(m => !m.IsDeleted)
-                .Select(c => new ComboboxItemDto(c.Id.ToString(), c.Name) { IsSelected = parentMenuId == c.Id })
-                .ToList();
+            output.Asset = menuClient != null
+                ? ObjectMapper.Map<AssetDto>(menuClient)
+                : new AssetDto();
+
+            var parentMenuId = output.Asset.ParentId ?? 0;
+            output.Assets = await assetRepository.GetAll()
+                .Where(m => m.Status)
+                .Select(c => new ComboboxItemDto(c.Id.ToString(), c.Assetname) { IsSelected = parentMenuId == c.Id })
+                .ToListAsync();
 
             return output;
         }
 
-        public ListResultDto<AssetDto> GetAssets()
+        public async Task<ListResultDto<AssetForViewDto>> GetAssetForView()
         {
-            List<Asset> assets = repository.GetAllList();
-            return new ListResultDto<AssetDto>(
-                assets.Select(item => ObjectMapper.Map<AssetDto>(item)).ToList());
+            var items = await assetRepository.GetAllListAsync();
+            return new ListResultDto<AssetForViewDto>(
+                items.Select(item => ObjectMapper.Map<AssetForViewDto>(item)).ToList());
         }
 
-        public PagedResultDto<AssetDto> GetAssets(GetAssetInput input)
+        public PagedResultDto<AssetDto> GetAssets(AssetFilter input)
         {
-            IQueryable<Asset> query = repository.GetAll().WhereIf(!string.IsNullOrWhiteSpace(input.Name), item => item.Name.Contains(input.Name));
-            int totalCount = query.Count();
-            List<Asset> assets = query.OrderBy(input.Sorting).PageBy(input).ToList();
+            var query = assetRepository.GetAll().Where(x => x.IsDelete == false);
+
+            // filter by Area
+            if (input.Area != null)
+            {
+                query = query.Where(x => x.Area.Contains(input.Area));
+            }
+
+            // filter by Area Code
+            if (input.Areacode != null)
+            {
+                query = query.Where(x => x.Areacode.ToLower().Contains(input.Areacode.ToLower()));
+            }
+            //filter by Assetname
+            if (input.Assetname != null)
+            {
+                query = query.Where(x => x.Assetname.ToLower().Contains(input.Assetname.ToLower()));
+            }
+            //filter by UnitCode
+            if (input.Unitcode != null)
+            {
+                query = query.Where(x => x.Unitcode.ToLower().Contains(input.Assetname.ToLower()));
+            }
+            //filter by Transaction
+            if (input.Transaction != null)
+            {
+                query = query.Where(x => x.Transaction.ToLower().Contains(input.Transaction.ToLower()));
+            }
+            //filter by AssetCode
+            if (input.Assetcode != null)
+            {
+                query = query.Where(x => x.Assetcode.ToLower().Contains(input.Assetcode.ToLower()));
+            }
+            //filter by SeriNumber
+            if (input.Serinumber != null)
+            {
+                query = query.Where(x => x.Serinumber.ToLower().Contains(input.Serinumber.ToLower()));
+            }
+            var totalCount = query.Count();
+
+            // sorting
+            if (!string.IsNullOrWhiteSpace(input.Sorting))
+            {
+                query = query.OrderBy(input.Sorting);
+            }
+
+            // paging
+            var items = query.PageBy(input).ToList();
+
+            // result
             return new PagedResultDto<AssetDto>(
                 totalCount,
-                assets.Select(item => ObjectMapper.Map<AssetDto>(item)).ToList());
-        }
-        [AbpAuthorize(GWebsitePermissions.Pages_Administration_Asset_Edit)]
-        public AssetDto UpdateAsset(UpdateAssetInput update)
-        {
-            Asset asset = repository.Get(update.Id);
-            ObjectMapper.Map(update, asset);
-            asset = repository.Update(asset);
-            CurrentUnitOfWork.SaveChanges();
-            return ObjectMapper.Map<AssetDto>(asset);
+                items.Select(item => ObjectMapper.Map<AssetDto>(item)).ToList());
         }
     }
 }

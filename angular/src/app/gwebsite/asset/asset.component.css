@@ -14,3 +14,7 @@ table {
   padding: 5px;
 }
   tr:hover {background-color:#3adf3a;}
+#edit{
+  margin-right: 0%;
+  background-color: #2c7fdd;
+}

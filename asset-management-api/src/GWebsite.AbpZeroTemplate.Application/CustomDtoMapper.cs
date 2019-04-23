@@ -42,7 +42,12 @@ namespace GWebsite.AbpZeroTemplate.Applications
 
             // Asset
             configuration.CreateMap<Asset, AssetDto>();
-            configuration.CreateMap<CreateAssetInput, Asset>();
+            configuration.CreateMap<AssetDto, Asset>();
+            configuration.CreateMap<Asset, AssetForViewDto>();
+            configuration.CreateMap<AssetForViewDto, Asset>();
+            configuration.CreateMap<Asset, AssetInput>();
+            configuration.CreateMap<AssetInput, Asset>();
+            configuration.CreateMap<Asset, UpdateAssetInput>();
             configuration.CreateMap<UpdateAssetInput, Asset>();
 
             // Dat Asset

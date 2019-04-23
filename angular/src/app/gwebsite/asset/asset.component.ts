@@ -19,6 +19,7 @@ export class AssetComponent extends AppComponentBase implements OnInit {
   @ViewChild('dataTable') dataTable: Table;
   @ViewChild('textsTable') textsTable: ElementRef;
   @ViewChild('createAsset') createAsset : CreateAsset;
+  saving: boolean = false;
   area: string;
   unitcode: string;
   areacode:string;
@@ -151,6 +152,10 @@ export class AssetComponent extends AppComponentBase implements OnInit {
     //this.reloadPage();
     
   }
+  getid(assetId?: number | null | undefined)
+  {
+    console.log(assetId);
+  }
   getAssetsByFilter(filtertext: string){
     this._apiService.get("api/Asset/GetAssetsByFilter",[
       {fieldName:"Area",value: filtertext }
@@ -171,7 +176,51 @@ export class AssetComponent extends AppComponentBase implements OnInit {
       return true;
     }
   }
+  getAssetForEdit(assetId?: number | null | undefined): void {
+    this.saving = true;
+    /*this.http.get("http://localhost:5000/api/Asset/GetAssetForEdit?id="+assetId).subscribe(data=>{
+      this.asset= data;
+    })*/
+    this._apiService.getForEdit('api/asset/GetassetForEdit', assetId).subscribe(result => {
+      this.asset.id = assetId;
+      this.area = result.asset.area;
+      this.unitcode = result.asset.unitcode;
+      this.areacode = result.asset.areacode;
+      this.transaction = result.asset.transaction;
+      this.assetcode = result.asset.assetcode;
+      this.assetname = result.asset.assetname;
+      this.serinumber = result.asset.serinumber;
+      this.originalprice = result.asset.originalprice;
+  });
+  }
+  updateAsset(){
+    this.asset.area=this.area;
+    this.asset.unitcode=this.unitcode;
+    this.asset.areacode=this.areacode;
+    this.asset.transaction=this.transaction;
+    this.asset.assetcode=this.assetcode;
+    this.asset.assetname=this.assetname;
+    this.asset.serinumber=this.serinumber;
+    this.asset.originalprice=this.originalprice;
+    console.log(this.asset);
+    this.http.put("http://localhost:5000/api/Asset/UpdateAsset",this.asset).subscribe(()=>{
+        this.notify.info(this.l('Updated Successfully'));
+    })
+  }
+  reset()
+  {
+    this.area = null;
+      this.unitcode = null;
+      this.areacode = null;
+      this.transaction = null;
+      this.assetcode =null;
+      this.assetname = null;
+      this.serinumber = null;
+      this.originalprice = null;
+  }
   insertAsset(event: Event){
+    if(!this.saving)
+    {
     if(this.check())
       return;
     this.asset.area=this.area;
@@ -180,10 +229,16 @@ export class AssetComponent extends AppComponentBase implements OnInit {
     this.asset.transaction=this.transaction;
     this.asset.assetcode=this.assetcode;
     this.asset.assetname=this.assetname;
-    this.asset.serialnumber=this.serinumber;
+    this.asset.serinumber=this.serinumber;
     this.asset.originalprice=this.originalprice;
     this.http.post("http://localhost:5000/api/Asset/CreateAsset",this.asset).subscribe(()=>{
-        this.notify.info(this.l('SavedSuccessfully'));
+        this.notify.info(this.l('Saved Successfully'));
     })
+    }
+  else{
+    this.updateAsset();
+    this.reset();
+    this.saving=false;
+  }
 }
 }

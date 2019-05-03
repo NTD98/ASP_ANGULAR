@@ -21,7 +21,9 @@ namespace GWebsite.AbpZeroTemplate.Application.Share.Assets.Dto
 
         public DateTime DateCheckIn { get; set; }
 
-        public DateTime ExpiryDate { get; set; }
+        public int MonthDepreciation { get; set; }
+
+        public string DepreciationCategory { get; set; }
 
         public string UnitCalculation { get; set; }
 

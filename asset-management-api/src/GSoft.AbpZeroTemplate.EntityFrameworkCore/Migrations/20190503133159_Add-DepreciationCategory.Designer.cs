@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GSoft.AbpZeroTemplate.Migrations
 {
     [DbContext(typeof(AbpZeroTemplateDbContext))]
-    [Migration("20190419200955_Database")]
-    partial class Database
+    [Migration("20190503133159_Add-DepreciationCategory")]
+    partial class AddDepreciationCategory
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1565,9 +1565,13 @@ namespace GSoft.AbpZeroTemplate.Migrations
 
                     b.Property<DateTime>("DateCheckIn");
 
+                    b.Property<string>("DepreciationCategory");
+
                     b.Property<DateTime>("ExpiryDate");
 
                     b.Property<bool>("IsDeleted");
+
+                    b.Property<int>("MonthDepreciation");
 
                     b.Property<string>("Name")
                         .IsRequired();
@@ -1598,43 +1602,6 @@ namespace GSoft.AbpZeroTemplate.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AssetCategories");
-                });
-
-            modelBuilder.Entity("GWebsite.AbpZeroTemplate.Core.Models.Dat.Asset", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Area");
-
-                    b.Property<string>("Areacode");
-
-                    b.Property<string>("Assetcode");
-
-                    b.Property<string>("Assetname");
-
-                    b.Property<string>("CreatedBy");
-
-                    b.Property<DateTime?>("CreatedDate");
-
-                    b.Property<bool>("IsDelete");
-
-                    b.Property<int>("Originalprice");
-
-                    b.Property<string>("Serinumber");
-
-                    b.Property<string>("Transaction");
-
-                    b.Property<string>("Unitcode");
-
-                    b.Property<string>("UpdatedBy");
-
-                    b.Property<DateTime?>("UpdatedDate");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Dat_Assets");
                 });
 
             modelBuilder.Entity("GWebsite.AbpZeroTemplate.Core.Models.DemoModel", b =>

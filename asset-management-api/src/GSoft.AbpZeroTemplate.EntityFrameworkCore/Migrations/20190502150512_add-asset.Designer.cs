@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GSoft.AbpZeroTemplate.Migrations
 {
     [DbContext(typeof(AbpZeroTemplateDbContext))]
-    [Migration("20190419090929_Departments")]
-    partial class Departments
+    [Migration("20190502150512_add-asset")]
+    partial class addasset
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

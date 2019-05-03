@@ -1,0 +1,103 @@
+<div bsModal #createOrEditModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="createOrEditModal"
+    aria-hidden="true" [config]="{backdrop: 'static'}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form *ngIf="active" #editForm="ngForm" novalidate (ngSubmit)="save()">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span *ngIf="depreciation.id">{{l("Cập nhật khấu hao")}}: {{depreciation.name}}</span>
+                        <span *ngIf="!depreciation.id">{{l("Tạo mới khấu hao")}}</span>
+                    </h4>
+                    <button type="button" class="close" (click)="close()" [attr.aria-label]="l('Close')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                      <label>{{l("Tên tài sản")}} *</label>
+                      <select #depreciationCombobox class="form-control" [(ngModel)]="depreciation.name"
+                          name="asset-name" [attr.data-live-search]="true" jq-plugin="selectpicker" required>
+                          <option value="depreciation.name">{{emptyText}}</option>
+                          <option *ngFor="let item of assets" [value]="item">{{item}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>{{l("Số lượng")}} *</label>
+                      <input #aliasInput="ngModel" class="form-control" type="number" name="quantity" [(ngModel)]="depreciation.quantity"
+                          required maxlength="64" min="1" max="1000">
+                      <validation-messages [formCtrl]="aliasInput"></validation-messages>
+                    </div>
+                    <div class="form-group">
+                      <label>{{l("Bộ phận")}} *</label>
+                      <select #departmentCombobox class="form-control" [(ngModel)]="depreciation.departmentId" name="department-name"
+                          [attr.data-live-search]="true" jq-plugin="selectpicker" required>
+                          <option value="depreciation.departmentId">{{emptyText}}</option>
+                          <option *ngFor="let item of departments" [value]="item">{{item}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>{{l("Phương pháp tính khấu hao")}} *</label>
+                      <select (ngModelChange)="methodChangeValue($event)" #methodCombobox class="form-control" [(ngModel)]="depreciation.calculationMethod" name="method-type"
+                          [attr.data-live-search]="true" jq-plugin="selectpicker" required>
+                          <option value="depreciation.calculationMethod">{{emptyText}}</option>
+                          <option *ngFor="let item of methods" [value]="item">{{item}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>{{l("Ngày bắt đầu tính khấu hao")}} *</label>
+                      <!-- <input (ngModelChange)="depreciation.dateOfStartCalculateDepreciation = $event"
+                        #aliasInput="dateOfStartCalculateDepreciation" class="form-control" type="date" 
+                        name="dateOfStartCalculateDepreciation"
+                        [(ngModel)]="depreciation.dateOfStartCalculateDepreciation Date | date:'yyyy-MM-dd'"
+                        required maxlength="64"> -->
+                        <input #dateStart="ngModel"
+                         class="form-control"
+                        [ngModel]="depreciation.dateOfStartCalculateDepreciation | date:'yyyy-MM-dd'"
+                        (ngModelChange)="depreciation.dateOfStartCalculateDepreciation = $event; calculateDepreciation()"
+                        type="date" name="dateOfStartCalculateDepreciation" required/>
+                      <validation-messages [formCtrl]="dateStart"></validation-messages>
+                    </div>
+                    <div class="form-group">
+                      <label>{{l("Hạn sử dụng")}} *</label>
+                      <input
+                      #expiryDate="ngModel"
+                      class="form-control"
+                      [ngModel]="depreciation.expiryDate | date:'yyyy-MM-dd'"
+                      (ngModelChange)="depreciation.expiryDate = $event; calculateDepreciation()" 
+                       type="date" name="expiryDate" required>
+                      <validation-messages [formCtrl]="expiryDate"></validation-messages>
+                    </div>
+                    <div class="form-group">
+                      <label>{{l("Giá trị ban đầu")}} *</label>
+                      <input (ngModelChange)='originalPriceChangeValue($event)' #aliasInput="ngModel" class="form-control" type="text" name="originalPrice" [(ngModel)]="depreciation.originalPrice"
+                          required maxlength="64">
+                      <validation-messages [formCtrl]="aliasInput"></validation-messages>
+                    </div>
+                    <div class="form-group">
+                      <label>{{l("Giá trị khấu hao")}} *</label>
+                      <input disabled #aliasInput="ngModel" class="form-control" type="text" name="depreciationValue" [(ngModel)]="depreciation.depreciationValue"
+                          required maxlength="64">
+                      <validation-messages [formCtrl]="aliasInput"></validation-messages>
+                    </div>
+                    <div class="form-group">
+                      <label>{{l("Tỉ lệ khấu hao theo tháng")}} *</label>
+                      <input disabled #aliasInput="ngModel" class="form-control" type="text" name="monthlyDepreciationRate" [(ngModel)]="depreciation.monthlyDepreciationRate"
+                          required maxlength="64">
+                      <validation-messages [formCtrl]="aliasInput"></validation-messages>
+                    </div>
+                    <div class="form-group">
+                      <label>{{l("Tỉ lệ khấu hao theo năm")}} *</label>
+                      <input disabled #aliasInput="ngModel" class="form-control" type="text" name="annualDepreciationRate" [(ngModel)]="depreciation.annualDepreciationRate"
+                          required maxlength="64">
+                      <validation-messages [formCtrl]="aliasInput"></validation-messages>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button [disabled]="saving" type="button" class="btn btn-default" (click)="close()">{{l("Cancel")}}</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid" [buttonBusy]="saving"
+                        [busyText]="l('SavingWithThreeDot')"><i class="fa fa-save"></i> <span>{{l("Save")}}</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

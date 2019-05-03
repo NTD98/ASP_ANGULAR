@@ -4,14 +4,16 @@ using GSoft.AbpZeroTemplate.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GSoft.AbpZeroTemplate.Migrations
 {
     [DbContext(typeof(AbpZeroTemplateDbContext))]
-    partial class AbpZeroTemplateDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190502150512_add-asset")]
+    partial class addasset
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1563,13 +1565,9 @@ namespace GSoft.AbpZeroTemplate.Migrations
 
                     b.Property<DateTime>("DateCheckIn");
 
-                    b.Property<string>("DepreciationCategory");
-
                     b.Property<DateTime>("ExpiryDate");
 
                     b.Property<bool>("IsDeleted");
-
-                    b.Property<int>("MonthDepreciation");
 
                     b.Property<string>("Name")
                         .IsRequired();

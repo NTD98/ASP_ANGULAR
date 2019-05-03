@@ -1,0 +1,93 @@
+<div bsModal #createOrEditModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="createOrEditModal"
+    aria-hidden="true" [config]="{backdrop: 'static'}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form *ngIf="active" #editForm="ngForm" novalidate (ngSubmit)="save()">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span *ngIf="asset.id">{{l("Chỉnh sửa thông tin tài sản")}}: {{asset.name}}</span>
+                        <span *ngIf="!asset.id">{{l("Tạo một tài sản mới")}}</span>
+                    </h4>
+                    <button type="button" class="close" (click)="close()" [attr.aria-label]="l('Close')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>{{l("Tên tài sản")}} *</label>
+                        <input #nameInput="ngModel" class="form-control" type="text" name="DisplayName" [(ngModel)]="asset.name"
+                            required maxlength="64">
+                        <validation-messages [formCtrl]="nameInput"></validation-messages>
+                    </div>
+                    <div class="form-group">
+                        <label>{{l("Mã tài sản")}} *</label>
+                        <input #aliasInput="ngModel" class="form-control" type="text" name="Alias" [(ngModel)]="asset.alias"
+                            required maxlength="64">
+                        <validation-messages [formCtrl]="aliasInput"></validation-messages>
+                    </div>
+                    <div class="form-group">
+                        <label>{{l("Loại tàn sản")}}</label>
+                        <select #assetCombobox name="assetName" class="form-control" [(ngModel)]="asset.categoryID"
+                            [attr.data-live-search]="true" jq-plugin="selectpicker" required>
+                            <option value="">{{emptyText}}</option>
+                            <option *ngFor="let item of assetCategories" [value]="item.value">{{item.displayText}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>{{l("Mã seri")}} *</label>
+                        <input #seri="ngModel" class="form-control" type="text" name="Seri" [(ngModel)]="asset.seri"
+                            required maxlength="64">
+                        <validation-messages [formCtrl]="seri"></validation-messages>
+                    </div>
+                    <div class="form-group">
+                        <label>{{l("Nguyên giá")}}</label>
+                        <input #originalPrice="ngModel" class="form-control" type="text" name="OriginalPrice" [(ngModel)]="asset.originalPrice"
+                        required min="1">
+                        <validation-messages [formCtrl]="originalPrice"></validation-messages>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label>{{l("Số lượng")}}</label>
+                        <input #originalPrice="ngModel" class="form-control" type="text" name="TotalCount" [(ngModel)]="asset.totalCount"
+                        required min="1">
+                        <validation-messages [formCtrl]="totalCount"></validation-messages>
+                    </div>
+                    <div class="form-group"  >
+                        <label>{{l("Tổng giá")}}</label>
+                        <input #originalPrice="ngModel" disabled class="form-control" type="text" name="TotalPrice" [(ngModel)]="asset.totalPrice"
+                        required min="1">
+                        <validation-messages [formCtrl]="totalPrice"></validation-messages>
+                    </div> -->
+                    <div class="form-group">
+                        <label>{{l("Ngày nhập")}}</label>
+                        <input #dateCheckIn="ngModel" class="form-control" [ngModel]="asset.dateCheckIn | date:'yyyy-MM-dd'" (ngModelChange)="asset.dateCheckIn = $event" type="date" name="dateCheckIn" required/>
+                        <validation-messages [formCtrl]="dateCheckIn"></validation-messages>
+                    </div>
+                    <div class="form-group">
+                        <label>{{l("Số tháng khấu hao")}}</label>
+                        <input #monthDepreciation="ngModel" class="form-control" type="text" name="MonthDepreciation" [(ngModel)]="asset.monthDepreciation"
+                        required min="1">
+                        <validation-messages [formCtrl]="monthDepreciation"></validation-messages>
+                    </div>
+                    <div class="form-group">
+                        <label>{{l("Loại khấu hao")}}</label>
+                        <select #depreciationCategoryCombobox name="depreciationCategory" class="form-control" [(ngModel)]="asset.depreciationCategory"
+                            [attr.data-live-search]="true" jq-plugin="selectpicker" required>
+                            <option value="">{{emptyText}}</option>
+                            <option *ngFor="let item of depreciationCategory" [value]="item.id">{{item.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>{{l("Đơn vị tính")}}</label>
+                        <input #unitCalculation="ngModel" class="form-control" type="text" name="unitCalculation" [(ngModel)]="asset.unitCalculation" required>
+                        <validation-messages [formCtrl]="unitCalculation"></validation-messages>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button [disabled]="saving" type="button" class="btn btn-default" (click)="close()">{{l("Cancel")}}</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid" [buttonBusy]="saving"
+                        [busyText]="l('SavingWithThreeDot')"><i class="fa fa-save"></i> <span>{{l("Save")}}</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

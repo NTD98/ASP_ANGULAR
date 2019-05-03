@@ -23,7 +23,7 @@ namespace GWebsite.AbpZeroTemplate.Application.Share.Assets.Dto
 
         public int MonthDepreciation { get; set; }
 
-        public string DepreciationCategory { get; set; }
+        public double DepreciationValue { get; set; }
 
         public string UnitCalculation { get; set; }
         public bool IsDeleted { get; set; }

@@ -9,71 +9,57 @@ using GWebsite.AbpZeroTemplate.Application.Share.Assets.Dto;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace QuartzWithCore.Tasks
 {
-    public class KH : IJob
+    public class KH
     {
-        public Task Execute(IJobExecutionContext context)
+        /// <summary>
+        /// Calculate Depreciation
+        /// </summary>
+        /// <param name="startDate">Start Date</param>
+        /// <param name="endDate">End Start</param>
+        /// <param name="originalPrice">Original Price</param>
+        /// <returns>Depreciation</returns>
+        public double calculateDepreciation(double originalPrice, int totalMonths = 0)
         {
-            Console.WriteLine("Run");
-            //IEnumerable<AssetForViewDto> assets = null;
-            //Console.WriteLine("Run");
-            //SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder();
-            //csb.DataSource = "DESKTOP-OAVL1J3";
-            //csb.InitialCatalog = "gwebsite3";
-            //csb.IntegratedSecurity = true;
-
-            //string connString = "Data Source=DESKTOP-OAVL1J3;Initial Catalog=gwebsite3;Integrated Security=True";
-
-            ////Be sure to replace <YourTable> with the actual name of the Table
-            //string queryString = "select * from Assets";
-            //var map = new Dictionary<int, float>();
-            //using (SqlConnection connection = new SqlConnection(connString))
-            //using (SqlCommand command = connection.CreateCommand())
-            //{
-            //    command.CommandText = queryString;
-
-            //    connection.Open();
-
-            //    using (SqlDataReader reader = command.ExecuteReader())
-            //    {
-            //        while (reader.Read())
-            //        {
-            //            int id = int.Parse(reader["Id"].ToString());
-            //            float K = (float)11 / 12;
-            //            float KH = int.Parse(reader["Originalprice"].ToString()) * K;
-            //            map.Add(id, KH);
-
-            //        }
-            //    }
-            //}
-            //foreach (KeyValuePair<int, float> asset in map)
-            //{
-            //    try
-            //    {
-            //        using (SqlConnection connection = new SqlConnection(connString))
-            //        using (SqlCommand command = connection.CreateCommand())
-            //        {
-            //            command.CommandText = "UPDATE Assets SET Originalprice = " + asset.Value.ToString() + " WHERE Id = " + asset.Key.ToString();
-            //            Console.WriteLine(command.CommandText);
-            //            connection.Open();
-            //            using (SqlDataReader reader = command.ExecuteReader())
-            //            {
-            //                while (reader.Read())
-            //                {
-
-
-            //                }
-            //            }
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        Console.WriteLine(ex);
-            //    }
-            //}
-            return Task.FromResult(0);
+            return totalMonths <= 1 ? originalPrice : originalPrice / totalMonths;
+        }
+        public void AddParameter(string query, object[] parameter, SqlCommand command)
+        {
+            if (parameter != null)
+            {
+                string[] listParameter = query.Split(' ');
+                int i = 0;
+                foreach (string item in listParameter)
+                {
+                    if (item.Contains("@"))
+                    {
+                        command.Parameters.AddWithValue(item, parameter[i]);
+                        ++i;
+                    }
+                }
+            }
+        }
+        public int Execute(AssetDto asset, object[] parameter = null)
+        {
+            if (DateTime.Now.Day != 25)
+            {
+                return 0;
+            }
+            int data = 0;
+            string connectionStr = @"Data Source=DESKTOP-0TVNIA1;Initial Catalog=gwebsite;Integrated Security=True";
+            string query = "UPDATE Assets SET DepreciationValue = " + calculateDepreciation(asset.OriginalPrice, asset.MonthDepreciation);
+            using (SqlConnection connection = new SqlConnection(connectionStr))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                AddParameter(query, parameter, command);
+                data = command.ExecuteNonQuery();
+                connection.Close();
+            }
+            return data;
         }
     }
 }

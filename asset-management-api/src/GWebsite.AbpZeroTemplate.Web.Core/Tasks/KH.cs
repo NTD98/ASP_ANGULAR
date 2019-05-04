@@ -73,7 +73,7 @@ namespace QuartzWithCore.Tasks
                                 }
                             }
                             assets.MonthDepreciation = asset.Value;
-                            command.CommandText = "UPDATE Depreciations SET DepreciationValue = " + calculateDepreciation(assets.OriginalPrice, assets.MonthDepreciation).ToString() + " WHERE Id = " + asset.Key.ToString() + " AND DAY(DateOfStartCalculateDepreciation) = "+DateTime.Now.Day.ToString();
+                            command.CommandText = "UPDATE Depreciations SET DepreciationValue = " + calculateDepreciation(assets.OriginalPrice, assets.MonthDepreciation).ToString() + " WHERE AssetId = " + asset.Key.ToString() + " AND DAY(DateOfStartCalculateDepreciation) = "+DateTime.Now.Day.ToString();
                             Console.WriteLine(command.CommandText);
                             connection.Open();
                             using (SqlDataReader reader = command.ExecuteReader())

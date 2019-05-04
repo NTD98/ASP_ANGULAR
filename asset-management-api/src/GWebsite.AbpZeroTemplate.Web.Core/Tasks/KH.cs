@@ -59,8 +59,7 @@ namespace QuartzWithCore.Tasks
             {
                 try
                 {
-                    if (asset.Value == DateTime.Now.Day)
-                    {
+                    
                         using (SqlConnection connection = new SqlConnection(connString))
                         using (SqlCommand command = connection.CreateCommand())
                         {
@@ -73,8 +72,8 @@ namespace QuartzWithCore.Tasks
                                     break;
                                 }
                             }
-                            assets.MonthDepreciation = asset.Value;    
-                            command.CommandText = "UPDATE Depreciations SET DepreciationValue = " + calculateDepreciation(assets.OriginalPrice,assets.MonthDepreciation).ToString() + " WHERE Id = " + asset.Key.ToString();
+                            assets.MonthDepreciation = asset.Value;
+                            command.CommandText = "UPDATE Depreciations SET DepreciationValue = " + calculateDepreciation(assets.OriginalPrice, assets.MonthDepreciation).ToString() + " WHERE Id = " + asset.Key.ToString() + " AND DAY(DateOfStartCalculateDepreciation) = "+DateTime.Now.Day.ToString();
                             Console.WriteLine(command.CommandText);
                             connection.Open();
                             using (SqlDataReader reader = command.ExecuteReader())
@@ -86,7 +85,7 @@ namespace QuartzWithCore.Tasks
                                 }
                             }
                         }
-                    }
+                    
                 }
                 catch (Exception ex)
                 {
